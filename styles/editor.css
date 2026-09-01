@@ -1,0 +1,100 @@
+#editor {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: auto;
+    background: #111;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+@media print {
+    #editor {
+        background: #fff;
+        color: #000;
+    }
+}
+
+#code-input,
+#code-highlight {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%;
+    width: max-content;
+    min-width: 100%;
+    height: 100%;
+    height: max-content;
+    min-height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#code-input {
+    background: transparent;
+    color: transparent;
+    caret-color: #eee;
+    z-index: 2;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 12px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+}
+
+#code-highlight {
+    z-index: 1;
+    pointer-events: none;
+}
+
+#code-content {
+    display: block;
+    padding: 12px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+    color: #eee;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#output {
+    display: block;
+    padding: 12px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+    color: #fff;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.xml-tag {
+    color: #0ad;
+}
+
+@media (prefers-color-scheme: light) {
+    #editor {
+        background-color: #fff;
+    }
+
+    @media print {
+        #editor {
+            background-color: #eee;
+            color: #000;
+        }
+    }
+
+    #code-input {
+        caret-color: #111;
+    }
+
+    #code-content,
+    #output {
+        color: #333;
+    }
+}

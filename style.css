@@ -1,0 +1,128 @@
+@import url('styles/editor.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #eee #111;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 4em 2em calc(100vh - 6em);
+    grid-template-areas:
+        "top_bar        top_bar"
+        "md-filename    html-filename"
+        "editor         editor";
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    gap: 1px;
+    background-color: #888;
+    font-family: sans-serif;
+}
+
+@media print {
+    body {
+        grid-template-columns: 100%;
+        grid-template-rows: 100%;
+        grid-template-areas: "editor";
+    }
+
+    body>* {
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+body>* {
+    background-color: #111;
+    color: #ccc;
+}
+
+#top-bar {
+    grid-area: top_bar;
+    display: flex;
+    padding: .5em;
+    align-items: center;
+    gap: .5em;
+}
+
+#top-bar>button {
+    border: 1px solid;
+    padding: .5em;
+    border: none;
+    border-radius: .5em;
+    color: inherit;
+    cursor: pointer;
+    background-color: #8888;
+    color: #fff;
+}
+
+#top-bar>h2 {
+    color: #888;
+}
+
+#top-bar>h2.unsaved {
+    color: inherit;
+}
+
+#top-bar>h2.unsaved::after {
+    color: inherit;
+    content: '*';
+}
+
+.filename-display {
+    font-size: 1em;
+    padding: .3em;
+    box-sizing: content-box;
+}
+
+.filename-display>span {
+    padding: .3em;
+    border-radius: .5em;
+}
+
+.filename-display>span.unsaved::after {
+    content: '[*]';
+    font-size: .7rem;
+}
+
+.pane {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+#editor {
+    grid-area: editor;
+}
+
+#output {
+    grid-area: output;
+}
+
+@media (prefers-color-scheme: light) {
+    body>* {
+        background-color: #eee;
+        color: #111;
+    }
+
+    * {
+        scrollbar-color: #111 #eee;
+    }
+
+    #top-bar>button {
+        color: #000;
+    }
+}

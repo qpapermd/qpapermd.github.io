@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QPaperMD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="top-bar">
+        <h2>QPaper<em>MD</em></h2>
+        <button onclick="window.FileHandler.open_markdown_file(window.editor)">Open File</button>
+        <button onclick="window.FileHandler.save_markdown_file(window.editor)">Save File</button>
+        <button onclick="window.FileHandler.save_markdown_file_as(window.editor)">Save File As..</button>
+        <button onclick="window.FileHandler.export_html_file(window.editor)">Save HTML</button>
+        <button onclick="window.FileHandler.export_html_file_as(window.editor)">Save HTML To..</button>
+    </div>
+    <div class="filename-display" style="grid-area: md-filename;">
+        <span id="markdown-filename-display"><em style="color: #888;">No MarkDown File Selected</em></span>
+    </div>
+    <div class="filename-display" style="grid-area: html-filename;">
+        <span id="html-filename-display"><em style="color: #888;">No HTML File Selected</em></span>
+    </div>
+    <div class="pane" id="editor">
+        <textarea id="code-input" spellcheck="false" autocapitalize="none" autocorrect="off" placeholder="Start typing here.."></textarea>
+        <div id="code-highlight"><code id="code-content"></code></div>
+    </div>
+    <script src="script.js" type="module"></script>
+    <script src="core/lib/katex/katex.min.js"></script>
+    <script src="core/lib/marked.umd.min.js"></script>
+    <script src="core/lib/beautify-html.min.js"></script>
+</body>
+
+</html>
